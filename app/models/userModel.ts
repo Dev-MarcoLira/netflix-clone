@@ -24,19 +24,13 @@ const UserSchema = new mongoose.Schema({
         required: [ true, 'Please add password' ],
         minLength: 10
     },
-    image: {
+    profilePicture: {
         type: String
     },
     isAdmin: {
         type: Boolean,
         default: false
     },
-    likedMovies: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Movie"
-        }
-    ],
     createdAt: {
         type: Date,
         default: mongoose.now()
