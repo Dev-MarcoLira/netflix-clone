@@ -1,4 +1,4 @@
-import { Response, Router } from 'express'
+import { Router, Express } from 'express'
 import User from '../models/userModel.ts'
 import { publicEncrypt } from 'crypto'
 import verifyToken from '../util/verifyToken.ts'
@@ -104,4 +104,6 @@ router.get('/stats', async (req, res) => {
     }
 });
   
-export default router
+export default (app: Express) => {
+  app.use('/users', router)
+}

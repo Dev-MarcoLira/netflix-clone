@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import { Router, Express } from 'express'
 import User from '../models/userModel.ts'
 import { publicEncrypt, publicDecrypt, randomUUID } from 'crypto'
 import jwt from 'jsonwebtoken'
@@ -58,4 +58,6 @@ router.post('/login', async(req, res)=> {
     }
 })
 
-export default router
+export default (app: Express) => {
+    app.use('/auth', router)
+}
